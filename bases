@@ -1,0 +1,46 @@
+Objective
+Demonstrate your understanding of modern JavaScript (ES6+) essentials for React Native by solving a
+programming problem that requires you to apply let/const, arrow functions, template literals, destructuring,
+spread/rest operators, array methods (map, filter, reduce), ES modules, and Promises/async-await — and recording a
+video that shows and explains your solution as you write, run, and test it.
+Modern JavaScript (ES6+) Essentials in Action
+
+The Problem: Enrollment Eligibility Checker
+The IT313 registrar has given you a raw list of enrollee records for the semester. Your task is to write a small
+Node.js program that turns this raw data into a formatted eligibility report, in the style of a real registrar utility.
+Starter data (place this in your main script or a separate data file):
+const enrollees = [
+ { name: "Ana Cruz", prelim: 85, midterm: 90, final: 88 },
+ { name: "Bea Santos", prelim: 70, midterm: 65, final: 60 },
+ { name: "Cid Ramos", prelim: 95, midterm: 92, final: 97 },
+ { name: "Dex Alonzo", prelim: 60, midterm: 55, final: 50 },
+ { name: "Eli Tan", prelim: 78, midterm: 80, final: 76 },
+];
+Passing standard: an enrollee is PASSING if their average of prelim, midterm, and final is 75 or above; otherwise
+they are on PROBATION.
+Sample expected output (your formatting may vary slightly, but the information must match):
+=== IT313 Enrollment Eligibility Report ===
+Ana Cruz - Average: 87.67 - PASSING
+Bea Santos - Average: 65.00 - PROBATION
+Cid Ramos - Average: 94.67 - PASSING
+Dex Alonzo - Average: 55.00 - PROBATION
+Eli Tan - Average: 78.00 - PASSING
+Class Average: 76.07
+Passing: 3 / 5
+Requirements — your solution must:
+1. Create a separate module file (e.g., gradeUtils.js) that exports a named function computeAverage(prelim,
+midterm, final) and a default function isPassing(average), then import both into your main script using ES
+module import/export syntax.
+2. Write a function getEnrollees() that returns a Promise which resolves with the enrollees array after a short delay
+(e.g., using setTimeout), simulating a call to a registrar API.
+3. Write an async function that awaits getEnrollees() inside a try/catch block, so a failed "connection" is caught
+and reported instead of crashing the program.
+4. Use destructuring to pull name, prelim, midterm, and final out of each enrollee record where you use them.
+5. Use .map(), together with your imported computeAverage() and isPassing(), to build a new array of { name,
+average, status } objects.
+6. Use .filter() to separate the passing enrollees from those on probation.
+7. Use .reduce() to compute the class average across all enrollees.
+8. Use template literals to print the formatted report shown above, including each enrollee's line, the class average,
+and the passing count.
+9. Include a README.md in your project explaining the problem, your approach, and how to run gradeUtils.js
+and your main script.
